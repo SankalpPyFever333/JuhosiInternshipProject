@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended:false})); // It is a middleware used to par
 
 
 // get data
-
+const port = process.env.PORT || 5000;
 app.get("/getAll", (request, response)=>{
       const db = dbServer.getdbServerInstance(); //create the instance of that class.
       const results = db.getAllData();
@@ -108,5 +108,5 @@ app.get("/admin", (request,response)=>{
 
 
 app.listen(process.env.PORT, ()=>{
-      console.log("app is running at ",process.env.PORT);
+      console.log("app is running at ",port);
 })
