@@ -15,29 +15,11 @@ app.use(express.urlencoded({extended:false})); // It is a middleware used to par
 
 // upon clicking submit button, write data into database using post():
 
-app.post("/insert" , (request, response)=>{
-      console.log(request.body);
-      // you get: { weight: 'sankalp', boxcount: 'dhbdhja', quantity: '12', owner: '34' }
-      //these value are of the input box.
-
-      const {weight,boxcount,quantity,owner} = request.body;
-
-      const db = dbServer.getdbServerInstance(); 
-      const results = db.insertNewData(weight,boxcount,quantity,owner);
-      results
-        .then((data) => {
-          response.json({success:true});
-        })
-        .catch((err) => console.log(err));
-
-
-})
-
 
 // get data
 
 app.get("/getAll", (request, response)=>{
-      const db = dbServer.getdbServerInstance(); //create the object of that class.
+      const db = dbServer.getdbServerInstance(); //create the instance of that class.
       const results = db.getAllData();
       // getAllData() is async function, so it returns response as a promise.
       results
@@ -47,6 +29,83 @@ app.get("/getAll", (request, response)=>{
       .catch(err=> console.log(err));
       
 })
+
+app.post("/customer1",(request, response)=>{
+      console.log(request.body);
+      const { weight, boxcount, quantity, owner,item, date,company, shipmentReq,trackingID, shipmentSize,specification,checklistQuantity } = request.body;
+
+      const db = dbServer.getdbServerInstance();
+      const results = db.insertNewDataCustomer1(
+        weight,
+        boxcount,
+        quantity,
+        owner,
+        item,
+        date,
+        company,
+        shipmentReq,
+        trackingID,
+        shipmentSize,
+        specification,
+        checklistQuantity
+      );
+      results
+        .then((data) => {
+          response.json({ success: true });
+        })
+        .catch((err) => console.log(err));
+
+})
+app.post("/customer2",(request, response)=>{
+      console.log(request.body);
+      
+
+      const {
+        weight,
+        boxcount,
+        quantity,
+        owner,
+        item,
+        date,
+        company,
+        shipmentReq,
+        trackingID,
+        shipmentSize,
+        specification,
+        checklistQuantity,
+      } = request.body;
+
+      const db = dbServer.getdbServerInstance();
+      const results = db.insertNewDataCustomer2(
+        weight,
+        boxcount,
+        quantity,
+        owner,
+        item,
+        date,
+        company,
+        shipmentReq,
+        trackingID,
+        shipmentSize,
+        specification,
+        checklistQuantity
+      );
+      results
+        .then((data) => {
+          response.json({ success: true });
+        })
+        .catch((err) => console.log(err));
+
+})
+
+app.get("/admin", (request,response)=>{
+      const db = dbServer.getdbServerInstance();
+      const results = db.getAdmin();
+      results
+            .then(data=>{response.json({data: data})})
+            .catch(err=> console.log(err));
+});
+
 
 app.listen(process.env.PORT, ()=>{
       console.log("app is running at ",process.env.PORT);

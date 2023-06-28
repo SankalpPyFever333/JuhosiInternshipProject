@@ -10,7 +10,7 @@
 
       <body>
             <div class="container">
-                  <div class="center">
+                  <div class="centerlogin">
                         <div class="top">
                               <h2>Juhosi</h2>
                         </div>
@@ -42,7 +42,7 @@
             </div>
             
             <!-- input boxes for adding data -->
-            <div class="center">
+            <div id="custData" class="center" style="display: none;">
                         
                                     <input
                                           type="text"
@@ -67,12 +67,95 @@
                                     <input
                                           type="text"
                                           class="text"
-                                          placeholder="owner"
+                                          placeholder="owner      "
                                           required
                                     />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="item"
+                                          required
+                                    />
+                                    <input
+                                          type="date"
+                                          class="text"
+                                          placeholder="date"
+                                          required
+                                    />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="company"
+                                          required
+                                    />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="ShipmentRequest"
+                                          required
+                                    />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="trackingID"
+                                          required
+                                    />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="ShipmentSize"
+                                          required
+                                    />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="specification"
+                                          required
+                                    />
+                                    <input
+                                          type="text"
+                                          class="text"
+                                          placeholder="checklistQuantity"
+                                          required
+                                    />
+                                    <button id="submitBtn"  class="button">Submit</button>
             </div>
 
-            <button id="submitBtn"  class="button">Submit</button>
+
+
+            <div class="adminTable">
+                  <table id="table" style="display: none;">
+                        <thead class="thead">
+                              <tr class="tr">
+                                    <th class="th">Item/Customer</th>
+                                    <th class="th">Cutomer1</th>
+                                    <th class="th">Customer2</th>
+                                    <th class="th">total</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr class="tr quantity">
+                                    <td class="td">Quantity</td>
+                                    <td class="td"></td>
+                                    <td class="td"></td>
+                                    <td class="td"></td>
+                              </tr>
+                              <tr class="tr weight">
+                                    <td class="td">weight</td>
+                                    <td class="td"></td>
+                                    <td class="td"></td>
+                                    <td class="td"></td>
+                              </tr>
+                              <tr class="tr boxcount">
+                                    <td class="td">boxcount</td>
+                                    <td class="td"></td>
+                                    <td class="td"></td>
+                                    <td class="td"></td>
+                              </tr>
+
+                        </tbody>
+                  </table>
+            </div>
 
             <script src="login.js"></script>
       </body>

@@ -43,16 +43,103 @@ class dbServer {
       console.log(error);
     }
   }
-  async insertNewData(weight, boxcount, quantity, owner) {
+
+  async getCustomer1() {
     try {
-      const response = await new Promise((resolve, reject) => {
-        const query = "INSERT INTO customerdata VALUES (?,?,?,?);";
-        connection.query(query,[weight,boxcount,quantity,owner], (err, results) => {
+      const response = await new Promise((resolve, request) => {
+        const query = "SELECT weight from Customer1;";
+        connection.query(query, (err, results) => {
           if (err) {
             reject(new Error(err.message));
           }
           resolve(results);
         });
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getAdmin() {
+    try {
+      const response = await new Promise((resolve, request) => {
+        const query =
+          "SELECT weight,quantity,boxcount FROM customer1 UNION ALL SELECT weight,quantity,boxcount FROM customer2;";
+        connection.query(query, (err, results) => {
+          if (err) {
+            reject(new Error(err.message));
+          }
+          resolve(results);
+        });
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async insertNewDataCustomer2(
+    weight,
+    boxcount,
+    quantity,
+    owner,
+    item,
+    date,
+    company,
+    shipmentReq,
+    trackingID,
+    shipmentSize,
+    specification,
+    checklistQuantity
+  ) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const query =
+          "INSERT INTO customer2 VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+        connection.query(
+          query,
+          [date, company, owner, item, quantity, weight, shipmentReq,trackingID,shipmentSize,boxcount,specification,checklistQuantity],
+          (err, results) => {
+            if (err) {
+              reject(new Error(err.message));
+            }
+            resolve(results);
+          }
+        );
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async insertNewDataCustomer1(
+    weight,
+    boxcount,
+    quantity,
+    owner,
+    item,
+    date,
+    company,
+    shipmentReq,
+    trackingID,
+    shipmentSize,
+    specification,
+    checklistQuantity
+  ) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const query =
+          "INSERT INTO customer1 VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+        connection.query(
+          query,
+          [date, company, owner, item, quantity, weight, shipmentReq,trackingID,shipmentSize,boxcount,specification,checklistQuantity],
+          (err, results) => {
+            if (err) {
+              reject(new Error(err.message));
+            }
+            resolve(results);
+          }
+        );
       });
       return response;
     } catch (error) {

@@ -15,12 +15,20 @@ body{
   flex-direction: column; 
 }
 
+.centerlogin{
+  width: 17rem;
+  border: 1px solid rgb(195, 195, 195);
+  border-radius: 5px;
+  background-color: white;
+  height:250px;
+}
+
 .center {
   width: 17rem;
   border: 1px solid rgb(195, 195, 195);
   border-radius: 5px;
   background-color: white;
-  height: 250px;
+  height: 118vh;
 }
 
 .isvaliduser{
@@ -50,7 +58,11 @@ input:focus::placeholder{
 
 }
 
+.text{
+  padding: 12px;
+  margin: 10px;
 
+}
 
 
 
@@ -83,9 +95,12 @@ input:focus::placeholder{
 }
 
 
-
-
-#submitBtn{
-  
+.adminTable{
+  padding: 12px;
 }
 
+.td{
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid grey;
+}
