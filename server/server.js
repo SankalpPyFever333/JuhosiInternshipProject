@@ -17,8 +17,7 @@ app.use(express.urlencoded({extended:false})); // It is a middleware used to par
 // upon clicking submit button, write data into database using post():
 
 
-const homepagePath = path.join(__dirname, "client", "login.html");
-const homepage = fs.readFileSync(homepagePath, "utf8");
+
 
 // get data
 const port = process.env.PORT || 5000;
@@ -111,6 +110,8 @@ app.get("/admin", (request,response)=>{
 });
 
 app.get("/", (request, response) => {
+  const homepagePath = path.join(__dirname, "client", "login.html");
+  const homepage = fs.readFileSync(homepagePath, "utf8");
   response.writeHead(200, { "content-type": "text/html" });
   response.write(homepage);
   response.end();
