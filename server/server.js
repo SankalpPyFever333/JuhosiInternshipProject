@@ -123,6 +123,11 @@ app.get("/main.css", (request, response) => {
   response.sendFile(path.join(__dirname, "..", "client", "main.css"));
 });
 
+// for js
+app.get("/login.js", (req, res) => {
+   res.setHeader("Content-Type", "application/javascript");
+  res.sendFile(path.join(__dirname, ".." , "client", "login.js"));
+});
 
 
 app.listen(process.env.PORT, ()=>{
