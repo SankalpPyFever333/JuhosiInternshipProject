@@ -117,6 +117,11 @@ app.get("/", (request, response) => {
   response.end();
 });
 
+// for css
+app.get("/main.css", (request, response) => {
+  response.set("Content-Type", "text/css");
+  response.sendFile(path.join(__dirname, "..", "client", "main.css"));
+});
 
 
 
