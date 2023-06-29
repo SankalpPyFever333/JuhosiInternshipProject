@@ -106,6 +106,13 @@ app.get("/admin", (request,response)=>{
             .catch(err=> console.log(err));
 });
 
+app.get("/", (req, res) => {
+  const filePath = path.join(__dirname, "client", "login.html");
+  res.sendFile(filePath);
+});
+
+
+
 
 app.listen(process.env.PORT, ()=>{
       console.log("app is running at ",port);
