@@ -108,7 +108,7 @@ app.get("/admin", (request,response)=>{
 
 app.get("/", (request, response) => {
   fs.readFile(
-    "C:/Users/sanka/OneDrive/Desktop/JuhosiInternship/client/login.html",
+    "/client/login.html",
     "utf8",
     (err, data) => {
       if (err) {
