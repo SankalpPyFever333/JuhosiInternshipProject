@@ -6,7 +6,7 @@ let instance = null;
 
 const connection = mysql.createConnection({
   host: "44.227.217.144",
-  user: "SanMuski",
+  user: "SanMusssu",
   password: "sankalp1",
   database: "juhosi",
   port: 3306,
