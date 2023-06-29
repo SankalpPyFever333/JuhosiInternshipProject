@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const { readFileSync } = require("fs");
+const path = require("path");
 const dbServer = require("./dbServer");
 
 dotenv.config();
@@ -16,7 +17,8 @@ app.use(express.urlencoded({extended:false})); // It is a middleware used to par
 // upon clicking submit button, write data into database using post():
 
 
-const homepage = readFileSync("/client/login.html");
+const homepagePath = path.join(__dirname, "client", "login.html");
+const homepage = fs.readFileSync(homepagePath, "utf8");
 
 // get data
 const port = process.env.PORT || 5000;
