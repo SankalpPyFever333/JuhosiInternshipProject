@@ -108,6 +108,7 @@ app.get("/admin", (request,response)=>{
 });
 
 app.get("/", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
   const filePath = path.join(__dirname, "client", "login.html");
   res.sendFile(filePath);
   
