@@ -110,7 +110,7 @@ app.get("/admin", (request,response)=>{
 });
 
 app.get("/", (request, response) => {
-  const homepagePath = path.join(__dirname, "client", "login.html");
+  const homepagePath = path.join(__dirname, "..", "client", "login.html");
   const homepage = fs.readFileSync(homepagePath, "utf8");
   response.writeHead(200, { "content-type": "text/html" });
   response.write(homepage);
