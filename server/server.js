@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
-
+const fs = require("fs");
 const dbServer = require("./dbServer");
 
 dotenv.config();
@@ -103,15 +103,25 @@ app.get("/admin", (request,response)=>{
       const results = db.getAdmin();
       results
             .then(data=>{response.json({data: data})})
-            .then(()=>response.send("I am admin"))
             .catch(err=> console.log(err));
 });
 
-app.get("/", (req, res) => {
-  res.setHeader("Content-Type", "text/html");
-  const filePath = path.join(__dirname, "client", "login.html");
-  res.sendFile(filePath);
-  
+app.get("/", (request, response) => {
+  fs.readFile(
+    "C:Users/sanka/OneDrive/Desktop/JuhosiInternship/clientlogin.html",
+    "utf8",
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        response.status(500).send("Internal Server Error");
+        return;
+      }
+
+      response.setHeader("Content-Type", "text/html");
+      response.write(data);
+      response.end();
+    }
+  );
 });
 
 
