@@ -108,9 +108,9 @@ app.get("/admin", (request,response)=>{
 });
 
 app.get("/", (req, res) => {
-  // const filePath = path.join(__dirname, "client", "login.html");
-  // res.sendFile(filePath);
-  res.send("I am doing Juhosi");
+  const filePath = path.join(__dirname, "client", "login.html");
+  res.sendFile(filePath);
+  
 });
 
 
