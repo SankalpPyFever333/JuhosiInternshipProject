@@ -103,12 +103,14 @@ app.get("/admin", (request,response)=>{
       const results = db.getAdmin();
       results
             .then(data=>{response.json({data: data})})
+            .then(()=>response.send("I am admin"))
             .catch(err=> console.log(err));
 });
 
 app.get("/", (req, res) => {
-  const filePath = path.join(__dirname, "client", "login.html");
-  res.sendFile(filePath);
+  // const filePath = path.join(__dirname, "client", "login.html");
+  // res.sendFile(filePath);
+  res.send("I am doing Juhosi");
 });
 
 
