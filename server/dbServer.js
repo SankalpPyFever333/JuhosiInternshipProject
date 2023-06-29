@@ -5,7 +5,7 @@ dotenv.config();
 let instance = null;
 
 const connection = mysql.createConnection({
-  host: "100.20.92.101",
+  host: process.env.HOST,
   user: "Muski",
   password: "sankalp",
   database: "juhosi",
