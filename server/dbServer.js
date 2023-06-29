@@ -6,10 +6,10 @@ let instance = null;
 
 const connection = mysql.createConnection({
   host: "192.168.12.228",
-  user: "SanMusssu",
+  user: "Muski",
   password: "sankalp1",
   database: "juhosi",
-  port: 3306,
+  port: 3306
 });
 
 connection.connect((err)=>{
