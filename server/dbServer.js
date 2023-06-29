@@ -5,7 +5,7 @@ dotenv.config();
 let instance = null;
 
 const connection = mysql.createConnection({
-  host: "44.227.217.144",
+  host: "172.17.128.1",
   user: "SanMusssu",
   password: "sankalp1",
   database: "juhosi",
